@@ -1,6 +1,7 @@
 package com.prestashop.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.prestashop.base.BasePage;
 import io.qameta.allure.Step;
 
 import java.time.Duration;

@@ -3,6 +3,7 @@ package com.prestashop.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.prestashop.base.BasePage;
 import io.qameta.allure.Step;
 
 import java.time.Duration;

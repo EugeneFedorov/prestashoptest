@@ -1,15 +1,25 @@
 package com.prestashop.tests;
 
+import com.prestashop.base.BaseTest;
 import com.prestashop.model.Customer;
 import com.prestashop.pages.OrderConfirmationPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CartTests extends BaseTest {
+public class OrderFromCartTests extends BaseTest {
 
     @Test
-    public void testAddMenClothesToCart() {
+    @Story("Cart functionality for online store")
+    @Description("The user can add more than one product to the cart")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("The user can place an order from the cart.")
+    public void testAddMenClothesAndArtToCart() {
         OrderConfirmationPage orderConfirmationPage = getHomePage()
                 .getClothesPage()
                 .getMenClothes()

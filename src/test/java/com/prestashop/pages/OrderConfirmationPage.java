@@ -1,6 +1,7 @@
 package com.prestashop.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.prestashop.base.BasePage;
 
 import java.time.Duration;
 

@@ -1,14 +1,17 @@
-package com.prestashop.tests;
+package com.prestashop.base;
 
-import com.codeborne.selenide.Selenide;
+import com.prestashop.config.TestConfig;
 import com.prestashop.pages.HomePage;
+import com.prestashop.utils.ConfigManager;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(TestConfig.class)
 public class BaseTest {
 
     @BeforeEach
     public void setUp() {
-        Selenide.open("https://demo.prestashop.com/");
+        TestConfig.openUrl(ConfigManager.getBaseUrl());
         new HomePage().waitForPageLoad();
     }
 

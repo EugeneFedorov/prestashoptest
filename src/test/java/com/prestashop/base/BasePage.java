@@ -1,4 +1,4 @@
-package com.prestashop.pages;
+package com.prestashop.base;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;

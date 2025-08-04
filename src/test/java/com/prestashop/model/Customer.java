@@ -3,12 +3,12 @@ package com.prestashop.model;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.prestashop.utils.RandomEnumGenerator;
+import com.prestashop.utils.TestDataGenerator;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import net.andreinc.mockneat.MockNeat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +33,13 @@ public class Customer {
     public static Customer getCustomer() {
         return Customer.builder()
                 .socialTitle(RandomEnumGenerator.randomEnumValue(SocialTitle.class))
-                .firstName(MockNeat.threadLocal().names().get())
-                .lastName(MockNeat.threadLocal().names().get())
-                .email(MockNeat.threadLocal().emails().get())
+                .firstName(TestDataGenerator.generateFirstName())
+                .lastName(TestDataGenerator.generateLastName())
+                .email(TestDataGenerator.generateEmail())
                 .agreements(Agreement.generateAgreements())
-                .address(MockNeat.threadLocal().addresses().get())
+                .address(TestDataGenerator.generateAddress())
                 .postalCode(PostalCode.generatePostalCode())
-                .city(MockNeat.threadLocal().cities().capitals().get())
+                .city(TestDataGenerator.generateCity())
                 .shippingMethod(RandomEnumGenerator.randomEnumValue(ShippingMethod.class))
                 .payment(RandomEnumGenerator.randomEnumValue(Payment.class))
                 .build();
