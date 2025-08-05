@@ -21,7 +21,7 @@ src/
 │           └── prestashop/
 │               ├── base/
 │               │   ├── BasePage.java           # Base class for pages
-│               │   ├── BaseTest.java           # Basic test with settings for other tests
+│               │   └── BaseTest.java           # Basic test with settings for other tests
 │               ├── config/
 │               │   └── TestConfig.java         # Test configuration
 │               ├── model/
