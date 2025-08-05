@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class ConfigManager {
 
-    private static final Logger logger = LoggerFactory.getLogger(ConfigManager.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigManager.class);
     private static final Properties PROPERTIES = new Properties();
     private static final String CONFIG_FILE = "test.properties";
     private static volatile boolean isInitialized = false;
@@ -31,14 +31,14 @@ public class ConfigManager {
         try (InputStream inputStream = ConfigManager.class.getClassLoader().getResourceAsStream(CONFIG_FILE)) {
             if (inputStream == null) {
                 String errorMsg = String.format("Configuration file '%s' not found in classpath", CONFIG_FILE);
-                logger.error(errorMsg);
+                LOGGER.error(errorMsg);
                 throw new IllegalStateException(errorMsg);
             }
             PROPERTIES.load(inputStream);
-            logger.info("Successfully loaded {} configuration properties from {}", PROPERTIES.size(), CONFIG_FILE);
+            LOGGER.info("Successfully loaded {} configuration properties from {}", PROPERTIES.size(), CONFIG_FILE);
         } catch (IOException e) {
             String errorMsg = String.format("Failed to load configuration from '%s'", CONFIG_FILE);
-            logger.error(errorMsg, e);
+            LOGGER.error(errorMsg, e);
             throw new IllegalStateException(errorMsg, e);
         }
     }
@@ -47,7 +47,7 @@ public class ConfigManager {
         checkInitialization();
         String value = PROPERTIES.getProperty(key);
         if (value == null) {
-            logger.warn("Property '{}' not found in configuration", key);
+            LOGGER.warn("Property '{}' not found in configuration", key);
         }
         return value;
     }
@@ -56,7 +56,7 @@ public class ConfigManager {
         checkInitialization();
         String value = PROPERTIES.getProperty(key, defaultValue);
         if (value.equals(defaultValue)) {
-            logger.debug("Using default value '{}' for property '{}'", defaultValue, key);
+            LOGGER.debug("Using default value '{}' for property '{}'", defaultValue, key);
         }
         return value;
     }
@@ -75,7 +75,7 @@ public class ConfigManager {
             try {
                 return Integer.parseInt(value);
             } catch (NumberFormatException e) {
-                logger.warn("Invalid integer value '{}' for key '{}', using default: {}", value, key, defaultValue, e);
+                LOGGER.warn("Invalid integer value '{}' for key '{}', using default: {}", value, key, defaultValue, e);
             }
         }
         return defaultValue;

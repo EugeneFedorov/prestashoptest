@@ -3,7 +3,6 @@ package com.prestashop.config;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.prestashop.utils.ConfigManager;
-import com.prestashop.utils.ScreenshotUtils;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -19,22 +18,22 @@ import static com.codeborne.selenide.Browsers.FIREFOX;
 
 public class TestConfig implements BeforeAllCallback {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestConfig.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestConfig.class);
 
     @Override
     public void beforeAll(ExtensionContext context) {
-        logger.info("Initializing test configuration...");
+        LOGGER.info("Initializing test configuration...");
         try {
             setupSelenide();
-            logger.info("Test configuration initialized successfully");
+            LOGGER.info("Test configuration initialized successfully");
         } catch (Exception exception) {
-            logger.error("Failed to initialize test configuration", exception);
+            LOGGER.error("Failed to initialize test configuration", exception);
             throw exception;
         }
     }
 
     private void setupSelenide() {
-        logger.info("Configuring local browser environment");
+        LOGGER.info("Configuring local browser environment");
         setupLocalBrowser();
 
         // General Selenide settings
@@ -44,7 +43,7 @@ public class TestConfig implements BeforeAllCallback {
         Configuration.screenshots = true;
         Configuration.savePageSource = true;
 
-        logger.debug("Selenide configuration: timeout={}ms, pageLoadTimeout={}ms, reportsFolder={}",
+        LOGGER.debug("Selenide configuration: timeout={}ms, pageLoadTimeout={}ms, reportsFolder={}",
                 Configuration.timeout, Configuration.pageLoadTimeout, Configuration.reportsFolder);
     }
 
@@ -54,26 +53,26 @@ public class TestConfig implements BeforeAllCallback {
         Configuration.headless = Boolean.parseBoolean(System.getProperty("headless",
                 String.valueOf(ConfigManager.isHeadless())));
 
-        logger.info("Local browser configuration: browser={}, size={}, headless={}",
+        LOGGER.info("Local browser configuration: browser={}, size={}, headless={}",
                 Configuration.browser, Configuration.browserSize, Configuration.headless);
 
         switch (Configuration.browser) {
             case CHROME -> {
-                logger.debug("Configuring Chrome options for local execution");
+                LOGGER.debug("Configuring Chrome options for local execution");
                 Configuration.browserCapabilities.setCapability("goog:chromeOptions",
                         Map.of("args", List.of("--no-sandbox", "--disable-dev-shm-usage")));
             }
 
             case FIREFOX -> {
-                logger.debug("Configuring Firefox options for local execution");
+                LOGGER.debug("Configuring Firefox options for local execution");
                 Configuration.browserCapabilities.setCapability("marionette", true);
             }
 
             case EDGE ->
                 //If necessary, a specific configuration can be added here.
-                    logger.debug("Configuring Edge options for local execution");
+                    LOGGER.debug("Configuring Edge options for local execution");
 
-            default -> logger.debug("No special configuration needed for browser: {}", Configuration.browser);
+            default -> LOGGER.debug("No special configuration needed for browser: {}", Configuration.browser);
         }
 
     }

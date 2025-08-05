@@ -7,31 +7,31 @@ import java.util.Locale;
 
 public class TestDataGenerator {
 
-    private static final Faker faker = new Faker(new Locale("en"));
+    private static final Faker FAKER = new Faker(new Locale("en"));
 
     @Step("Generate random email")
     public static String generateEmail() {
-        return faker.internet().emailAddress();
+        return FAKER.internet().emailAddress();
     }
 
     @Step("Generate random first name")
     public static String generateFirstName() {
-        return faker.name().firstName();
+        return FAKER.name().firstName();
     }
 
     @Step("Generate random last name")
     public static String generateLastName() {
-        return faker.name().lastName();
+        return FAKER.name().lastName();
     }
 
     @Step("Generate random address")
     public static String generateAddress() {
-        return faker.address().fullAddress();
+        return FAKER.address().fullAddress();
     }
 
     @Step("Generate random city")
     public static String generateCity() {
-        return faker.address().city();
+        return FAKER.address().city();
     }
 
 } 

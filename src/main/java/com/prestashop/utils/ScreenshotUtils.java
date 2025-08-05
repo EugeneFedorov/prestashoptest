@@ -10,11 +10,11 @@ import java.io.ByteArrayInputStream;
 
 public class ScreenshotUtils {
 
-    private static final Logger logger = LoggerFactory.getLogger(ScreenshotUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ScreenshotUtils.class);
 
     public static void takeScreenshot(String screenshotName) {
         if (screenshotName == null || screenshotName.trim().isEmpty()) {
-            logger.warn("Screenshot name cannot be null or empty");
+            LOGGER.warn("Screenshot name cannot be null or empty");
             return;
         }
 
@@ -22,7 +22,7 @@ public class ScreenshotUtils {
             byte[] screenshot = Selenide.screenshot(OutputType.BYTES);
 
             if (screenshot == null || screenshot.length == 0) {
-                logger.error("Failed to take screenshot - returned null or empty byte array");
+                LOGGER.error("Failed to take screenshot - returned null or empty byte array");
                 return;
             }
 
@@ -32,9 +32,9 @@ public class ScreenshotUtils {
                     new ByteArrayInputStream(screenshot),
                     "png"
             );
-            logger.debug("Successfully captured screenshot: {}", screenshotName);
+            LOGGER.debug("Successfully captured screenshot: {}", screenshotName);
         } catch (Exception e) {
-            logger.error("Failed to take and attach screenshot '{}'", screenshotName, e);
+            LOGGER.error("Failed to take and attach screenshot '{}'", screenshotName, e);
         }
     }
 

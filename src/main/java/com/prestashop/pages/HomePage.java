@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Selenide.title;
 
 public class HomePage extends BasePage {
 
+    private static final String FRAME_NAME = "framelive";
     private final SelenideElement loader = Selenide.$x("//div[@id='loadingMessage']");
     private final SelenideElement logo = $x("//div[@id='logo']");
     private final SelenideElement logoMyStore = $x("//img[@alt='PrestaShop']");
@@ -24,7 +25,6 @@ public class HomePage extends BasePage {
     private final SelenideElement stationeryAccessoriesLink = $x("//li[@id='category-7']");
     private final SelenideElement homeAccessoriesLink = $x("//li[@id='category-8']");
     private final SelenideElement artLink = $x("//li[@id='category-9']");
-    private final String FRAME_NAME = "framelive";
 
     @Override
     @Step("Waiting for the Home page to load")

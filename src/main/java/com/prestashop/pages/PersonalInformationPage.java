@@ -11,11 +11,13 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class PersonalInformationPage extends BasePage {
 
-    private final SelenideElement personalInformationTitle = $x("//section[@id='checkout-personal-information-step']/h1");
+    private final SelenideElement personalInformationTitle =
+            $x("//section[@id='checkout-personal-information-step']/h1");
     private final SelenideElement firstNameInput = $x("//input[@id='field-firstname']");
     private final SelenideElement lastNameInput = $x("//input[@id='field-lastname']");
     private final SelenideElement emailInput = $x("//input[@id='field-email']");
-    private final SelenideElement customerFormContinueButton = $x("//form[@id='customer-form']//button[@name='continue']");
+    private final SelenideElement customerFormContinueButton =
+            $x("//form[@id='customer-form']//button[@name='continue']");
     private final SelenideElement addressInput = $x("//input[@id='field-address1']");
     private final SelenideElement postalInput = $x("//input[@id='field-postcode']");
     private final SelenideElement cityInput = $x("//input[@id='field-city']");

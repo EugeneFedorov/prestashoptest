@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class OrderConfirmationPage extends BasePage {
 
-    private final String CONFIRMATION_TEXT = "YOUR ORDER IS CONFIRMED";
+    private static final String CONFIRMATION_TEXT = "YOUR ORDER IS CONFIRMED";
     private final SelenideElement confirmationTitle = $x("//section[@id='content-hook_order_confirmation']//h3");
 
     @Override
