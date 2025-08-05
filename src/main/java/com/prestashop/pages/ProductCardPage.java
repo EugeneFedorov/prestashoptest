@@ -15,7 +15,7 @@ public class ProductCardPage extends BasePage {
     private final SelenideElement addToCartButton = $x("//button[@data-button-action]");
 
     @Override
-    @Step("Waiting for the Product cart page to load")
+    @Step("Waiting for the Product Card page to load")
     public void waitForPageLoad() {
         contentWrapper.shouldBe(visible, Duration.ofMillis(DEFAULT_TIMEOUT));
     }
