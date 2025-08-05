@@ -60,3 +60,11 @@ src/
 - `@Description` - test description
 - `@Severity` - criticality
 - `@Step` - step in test
+
+### Code Style Check
+The project has an automatic code style check set up using Checkstyle. 
+The check is run automatically with each push via **GitHub Actions**. 
+To run it locally, use the command:
+```bash
+mvn checkstyle:check
+```
