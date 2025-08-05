@@ -1,6 +1,6 @@
 package com.prestashop.tests;
 
-import com.prestashop.base.BaseTest;
+import com.prestashop.BaseTest;
 import com.prestashop.pages.HomePage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;

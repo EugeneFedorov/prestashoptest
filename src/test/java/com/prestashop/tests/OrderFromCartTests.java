@@ -1,6 +1,6 @@
 package com.prestashop.tests;
 
-import com.prestashop.base.BaseTest;
+import com.prestashop.BaseTest;
 import com.prestashop.model.Customer;
 import com.prestashop.pages.OrderConfirmationPage;
 import io.qameta.allure.Description;

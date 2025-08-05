@@ -1,4 +1,4 @@
-package com.prestashop.base;
+package com.prestashop;
 
 import com.prestashop.config.TestConfig;
 import com.prestashop.pages.HomePage;

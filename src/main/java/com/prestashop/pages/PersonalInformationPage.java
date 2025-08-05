@@ -1,7 +1,6 @@
 package com.prestashop.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.prestashop.base.BasePage;
 import com.prestashop.model.Customer;
 import io.qameta.allure.Step;
 

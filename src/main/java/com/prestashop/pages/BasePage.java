@@ -1,9 +1,9 @@
-package com.prestashop.base;
+package com.prestashop.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.prestashop.config.TestConfig;
 import com.prestashop.utils.ConfigManager;
+import com.prestashop.utils.ScreenshotUtils;
 import io.qameta.allure.Step;
 
 import java.time.Duration;
@@ -20,7 +20,7 @@ public abstract class BasePage {
 
     @Step("Take a screenshot")
     public void takeScreenshot(String screenshotName) {
-        TestConfig.takeScreenshot(screenshotName);
+        ScreenshotUtils.takeScreenshot(screenshotName);
     }
 
     @Step("Waiting for element: {element}")
